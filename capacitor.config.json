@@ -1,0 +1,8 @@
+{
+  "appId": "com.sidharth.messmenu",
+  "appName": "Mess Menu",
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": false
+  }
+}
