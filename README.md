@@ -8,8 +8,6 @@ the menu comes from local storage on your phone.
 
 ## Screenshots
 
-| First launch | Today's menu | Any other day |
-|:---:|:---:|:---:|
 | <img src="photos/1.png" width="240" alt="Empty state: No menu uploaded, with an Upload Menu button" /> | <img src="photos/2.png" width="240" alt="Today's menu with Morning, Afternoon, Snacks and Dinner collapsed to headings" /> | <img src="photos/3.jpg" width="240" alt="The in-app calendar open, with today highlighted" /> |
 
 ---
