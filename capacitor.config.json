@@ -1,6 +1,6 @@
 {
   "appId": "com.sidharth.messmenu",
-  "appName": "Mess Menu",
+  "appName": "MealPing",
   "webDir": "dist",
   "android": {
     "allowMixedContent": false

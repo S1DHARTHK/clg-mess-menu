@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Mess Menu</string>
-    <string name="title_activity_main">Mess Menu</string>
+    <string name="app_name">MealPing</string>
+    <string name="title_activity_main">MealPing</string>
     <string name="package_name">com.sidharth.messmenu</string>
     <string name="custom_url_scheme">com.sidharth.messmenu</string>
 </resources>

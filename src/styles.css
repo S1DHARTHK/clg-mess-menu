@@ -31,34 +31,35 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Glassy brown theme                                                  */
+/* Monochrome glass theme (iOS widget style)                           */
 /* ------------------------------------------------------------------ */
 
 :root {
-  /* warm espresso base */
-  --bg-base: #17100a;
-  --bg-deep: #0e0906;
+  /* neutral charcoal base */
+  --bg-base: #1c1c1e;
+  --bg-deep: #000000;
 
   /* translucent glass surfaces */
-  --glass: rgba(78, 51, 31, 0.34);
-  --glass-strong: rgba(90, 60, 37, 0.46);
-  --glass-line: rgba(232, 195, 149, 0.16);
-  --glass-line-soft: rgba(232, 195, 149, 0.09);
-  --glass-shine: rgba(255, 238, 214, 0.10);
+  --glass: rgba(255, 255, 255, 0.11);
+  --glass-strong: rgba(255, 255, 255, 0.16);
+  --glass-line: rgba(255, 255, 255, 0.16);
+  --glass-line-soft: rgba(255, 255, 255, 0.09);
+  --glass-shine: rgba(255, 255, 255, 0.13);
 
-  /* type */
-  --text: #f7efe4;
-  --muted: #c9b199;
+  /* type: iOS label / secondary label */
+  --text: #ffffff;
+  --muted: rgba(235, 235, 245, 0.6);
 
-  /* accent: caramel */
-  --accent: #dda868;
-  --accent-2: #b87d3f;
-  --accent-ink: #241608;
-  --danger: #ff9d8f;
+  /* "accent" is just light-on-dark - the whole palette is monochrome */
+  --accent: #ffffff;
+  --fill: rgba(255, 255, 255, 0.22);
+  --fill-hi: rgba(255, 255, 255, 0.30);
+  --accent-ink: #16161a;
+  --danger: #ff9a8f;
 
-  --radius: 18px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
-  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.26);
+  --radius: 24px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.32);
 
   color-scheme: dark;
 }
@@ -77,13 +78,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 
-  /* Layered warm background - this is what the glass panels blur. */
-  background-color: var(--bg-base);
+  /* Soft grey wash up top fading to black, like an iOS widget wallpaper. */
+  background-color: var(--bg-deep);
   background-image:
-    radial-gradient(900px 520px at 12% -8%, rgba(196, 129, 66, 0.34), transparent 62%),
-    radial-gradient(760px 480px at 108% 12%, rgba(139, 84, 43, 0.30), transparent 60%),
-    radial-gradient(700px 620px at 50% 118%, rgba(94, 56, 28, 0.36), transparent 64%),
-    linear-gradient(168deg, #22160d 0%, var(--bg-base) 46%, var(--bg-deep) 100%);
+    radial-gradient(880px 480px at 50% -12%, rgba(255, 255, 255, 0.16), transparent 64%),
+    radial-gradient(620px 420px at 8% 4%, rgba(255, 255, 255, 0.07), transparent 60%),
+    linear-gradient(180deg, #3a3a3c 0%, var(--bg-base) 34%, var(--bg-deep) 82%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -116,7 +116,7 @@ body {
 /* Older Android WebViews without backdrop-filter get an opaque panel instead,
    so text never lands on a see-through background it cannot contrast with. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .glass { background: #3a2517; }
+  .glass { background: #2e2e30; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -167,7 +167,7 @@ body {
   margin: 0;
   font-size: 14px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--muted);
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -217,7 +217,7 @@ body {
 
 /* The popover floats over cards, so it must stay legible without the blur. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .calendar { background: #402a1a; }
+  .calendar { background: #3a3a3c; }
 }
 
 .cal-head {
@@ -242,7 +242,7 @@ body {
   place-items: center;
   border-radius: 10px;
   border: 1px solid var(--glass-line-soft);
-  background: rgba(255, 226, 189, 0.07);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--accent);
   font: inherit;
   font-size: 19px;
@@ -282,7 +282,7 @@ body {
 }
 
 .cal-day:hover:not(:disabled):not(.selected) {
-  background: rgba(255, 226, 189, 0.10);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 /* today, when you are not currently looking at it */
@@ -292,14 +292,14 @@ body {
 }
 
 .cal-day.selected {
-  background: linear-gradient(160deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   color: var(--accent-ink);
   font-weight: 700;
 }
 
 /* a day the loaded menu has nothing for */
 .cal-day.empty {
-  color: rgba(201, 177, 153, 0.32);
+  color: rgba(235, 235, 245, 0.26);
   cursor: default;
 }
 
@@ -321,7 +321,7 @@ body {
   min-height: 38px;
   border-radius: 999px;
   border: 1px solid var(--glass-line);
-  background: rgba(255, 226, 189, 0.07);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--muted);
   font: inherit;
   font-size: 14.5px;
@@ -330,9 +330,9 @@ body {
 }
 
 .chip.active {
-  background: linear-gradient(160deg, var(--accent), var(--accent-2));
-  border-color: rgba(255, 232, 202, 0.28);
-  color: var(--accent-ink);
+  background: var(--fill-hi);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -346,10 +346,7 @@ body {
   line-height: 1.14;
   font-weight: 700;
   letter-spacing: -0.022em;
-  background: linear-gradient(100deg, #fdf3e6 12%, #e7bd85 92%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text);
 }
 
 /* ------------------------------------------------------------------ */
@@ -381,9 +378,9 @@ body {
 }
 
 .tab.active {
-  background: linear-gradient(160deg, var(--accent), var(--accent-2));
-  border-color: rgba(255, 232, 202, 0.28);
-  color: var(--accent-ink);
+  background: var(--fill-hi);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: var(--text);
   box-shadow: var(--shadow-soft);
 }
 
@@ -432,8 +429,9 @@ body {
   height: 40px;
   flex: none;
   border-radius: 13px;
-  background: rgba(255, 226, 189, 0.10);
+  background: rgba(255, 255, 255, 0.10);
   border: 1px solid var(--glass-line-soft);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .card-title {
@@ -448,7 +446,7 @@ body {
   min-width: 26px;
   padding: 3px 9px;
   border-radius: 999px;
-  background: rgba(255, 226, 189, 0.10);
+  background: rgba(255, 255, 255, 0.10);
   border: 1px solid var(--glass-line-soft);
   color: var(--muted);
   font-size: 13px;
@@ -546,6 +544,7 @@ body {
   place-items: center;
   border-radius: 28px;
   margin-bottom: 4px;
+  filter: grayscale(1) brightness(1.12);
 }
 
 .muted { color: var(--muted); margin: 0; }
@@ -591,10 +590,45 @@ body {
 /* buttons                                                             */
 /* ------------------------------------------------------------------ */
 
+/* ---- footer greeting ---- */
+
+.hello {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.hello-dot {
+  margin: 0 7px;
+  color: rgba(235, 235, 245, 0.34);
+}
+
+.hello-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+.hello-link:hover,
+.hello-link:active { opacity: 0.6; }
+
+.hello-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hello-link { transition: none; }
+}
+
 .primary {
-  background: linear-gradient(160deg, var(--accent), var(--accent-2));
+  background: var(--accent);
   color: var(--accent-ink);
-  border: 1px solid rgba(255, 232, 202, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
   padding: 13px 22px;
   font: inherit;

@@ -212,6 +212,19 @@ export default function App() {
               {busy ? 'Reading…' : 'Update Menu'}
             </button>
           </footer>
+
+          <p className="hello">
+            Got a second?
+            <span className="hello-dot" aria-hidden="true">·</span>
+            <a
+              className="hello-link"
+              href="https://www.instagram.com/_sidaarth"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Say hi 👋
+            </a>
+          </p>
         </>
       )}
     </div>
