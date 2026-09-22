@@ -1,7 +1,7 @@
 # Mess Menu
 
 A tiny offline Android app: upload your hostel's monthly Excel menu once, and it
-shows **today's** menu every time you open it .
+shows **today's** menu every time you open it.
 
 No login, no account, no backend, no internet. The date comes from your phone,
 the menu comes from local storage on your phone.
